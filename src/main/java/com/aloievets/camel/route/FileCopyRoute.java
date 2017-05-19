@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * Created by Andrew on 19.05.2017.
  */
 @Component
-public class FileCopierRouteBuilder extends RouteBuilder {
+public class FileCopyRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
