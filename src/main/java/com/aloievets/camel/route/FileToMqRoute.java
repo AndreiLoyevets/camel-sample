@@ -7,11 +7,12 @@ import org.springframework.stereotype.Component;
  * Created by Andrew on 19.05.2017.
  */
 @Component
-public class FileCopyRoute extends RouteBuilder {
+public class FileToMqRoute extends RouteBuilder {
 
     @Override
-    public void configure() throws Exception {
+    public void configure() {
         from("file:data/inbox?noop=true")
-                .to("file:data/outbox");
+                .split().tokenize("\n")
+                .to("activemq:queue:testCamelQueue");
     }
 }

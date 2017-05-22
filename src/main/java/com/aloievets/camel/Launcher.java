@@ -1,5 +1,6 @@
 package com.aloievets.camel;
 
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -8,7 +9,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Launcher {
 
     public static void main(String[] args) throws Exception {
-        new AnnotationConfigApplicationContext(AppConfig.class);
+        ConfigurableApplicationContext context
+                = new AnnotationConfigApplicationContext(AppConfig.class);
         Thread.sleep(10000);
+
+        context.close();
     }
 }
